@@ -1,0 +1,13 @@
+node_modules
+build
+dist
+.next
+out
+coverage
+*.log
+package-lock.json
+yarn.lock
+public
+.env
+.env.* 
+
