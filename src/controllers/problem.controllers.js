@@ -1,4 +1,5 @@
-import { getJudge0LanguageId, submitBatch } from '../libs/judge0.lib';
+import { db } from '../libs/db';
+import { getJudge0LanguageId, pollBatchResults, submitBatch } from '../libs/judge0.lib';
 
 export const createProblem = async (req, res) => {
   const {
