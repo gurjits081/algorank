@@ -35,7 +35,8 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  problems Problem[]
+  problems       Problem[]
+  problemsSolved ProblemsSolved[]
 }
 
 model Problem {
@@ -56,5 +57,17 @@ model Problem {
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user     User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  solvedBy ProblemsSolved[]
+}
+
+model ProblemsSolved {
+  id        String   @id @default(uuid())
+  userId    String
+  problemId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  problem Problem @relation(fields: [problemId], references: [id], onDelete: Cascade)
 }
