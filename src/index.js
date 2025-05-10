@@ -3,6 +3,7 @@ import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import router from './routers/user.routes.js';
 import problemRoutes from './routers/problem.routes.js';
+import executionRoute from './routers/executeCode.routes.js';
 
 dotenv.config();
 
@@ -19,3 +20,4 @@ app.listen(PORT, () => {
 
 app.use('/api/v1/user', router);
 app.use('/api/v1/problem', problemRoutes);
+app.use('/api/v1/execute-code', executionRoute);
